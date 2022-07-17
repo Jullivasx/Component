@@ -9,8 +9,15 @@
 <body>
     <script src="./Component.js"></script>
     <script>
-        const component = new Component({tag: 'form', classes: 'MyClass'});
+        const component = new Component({
+            tag: 'div', 
+            classes: 'MyClass',
+            attrs: {
+                'data-id': '1234',
+            },
+        });
         component.appendToElement(document.body);
+
         console.log(component)
     </script>
 </body>

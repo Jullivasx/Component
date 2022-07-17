@@ -11,6 +11,14 @@ class Component {
     constructor({tag='div', classes=[], attrs={}} = {}) {
         this.element = document.createElement(tag);
         this.addClasses(classes);
+        this.addAttrs(attrs);
+    }
+
+    addAttrs(attrs) {
+        Object.entries(attrs).forEach(([key, value]) => {
+            this.element.setAttribute(key, value);
+        }) 
+        return this;
     }
 
     addClasses(classes = []) {
