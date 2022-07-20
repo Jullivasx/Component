@@ -140,4 +140,26 @@ class Component {
         return this;
     }
 
+    /**
+     * Установить фоновое изображение компонента
+     * @param {String} src 
+     * @returns 
+     */
+     backgroundImage(src) {
+        this.element.style.backgroundImage = `url(${src})`;
+        this.element.style.backgroundPosition = 'center center';
+        this.element.style.backgroundSize = 'cover'
+        return this;
+    }
+
+    /**
+     * Установить текст
+     * @param {String} text 
+     * @returns 
+     */
+    setText(text) {
+        this.element.textContent = text;
+        return this;
+    }
+
 }
