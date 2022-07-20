@@ -10,7 +10,7 @@ class Component {
      */
     constructor({tag='div', classes=[], attrs={}} = {}) {
         this.element = document.createElement(tag);
-        this.addClasses(classes);
+        this.addClass(classes);
         this.addAttrs(attrs);
     }
 
@@ -27,26 +27,36 @@ class Component {
     }
 
     /**
-     * Добавление классов в комнонент
-     * @param {Array} classes 
-     * @returns 
+     * Добавляет стиль
+     * @param {String | Array} nameOrNames 
      */
-    addClasses(classes = []) {
-        if (typeof(classes) === 'string') {
-            this.addClass(classes);
-            return this;
+     addClass(nameOrNames) {
+        if (typeof(nameOrNames) === 'string') {
+            this.element.classList.add(nameOrNames);
         }
-        classes.forEach(_class => this.addClass(_class))
+
+        if (Array.isArray(nameOrNames)) {
+            nameOrNames.forEach((name) => {
+                this.element.classList.add(name);
+            });   
+        }
         return this;
     }
 
     /**
-     * Добавление класса в компонент
-     * @param {string} _class 
-     * @returns 
+     * Удаляет стиль
+     * @param {String | Array} nameOrNames 
      */
-    addClass(_class) {
-        this.element.classList.add(_class);
+    removeClass(nameOrNames){
+        if (typeof(nameOrNames) === 'string') {
+            this.element.classList.remove(nameOrNames);
+        }
+
+        if (Array.isArray(nameOrNames)) {
+            nameOrNames.forEach((name) => {
+                this.element.classList.remove(name);
+            });   
+        }
         return this;
     }
 
