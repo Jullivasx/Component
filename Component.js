@@ -145,7 +145,7 @@ class Component {
      * @param {String} src 
      * @returns 
      */
-     backgroundImage(src) {
+    backgroundImage(src) {
         this.element.style.backgroundImage = `url(${src})`;
         this.element.style.backgroundPosition = 'center center';
         this.element.style.backgroundSize = 'cover'
@@ -225,7 +225,7 @@ class Component {
      * @param {Object} styles 
      * @returns 
      */
-     setStyle(styles) {
+    setStyle(styles) {
         Object.entries(styles).forEach(([key, value]) => {
             this.element.style[key] = value;
         });
@@ -236,7 +236,7 @@ class Component {
      * Скрыть элемент
      * @returns 
      */
-     hide() {
+    hide() {
         this.element.hidden = true;
         return this;
     }
