@@ -250,4 +250,14 @@ class Component {
         return this;
     }
 
+    /**
+     * Установка значения src элемента
+     * @param {String} src 
+     * @returns 
+     */
+    setSrc(src) {
+        this.element.src = src;
+        return this;
+    }
+
 }
