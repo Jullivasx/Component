@@ -260,4 +260,13 @@ class Component {
         return this;
     }
 
+    /**
+     * Загрушка для метода обновления данных
+     * @param {any} data 
+     * @returns 
+     */
+    update(data) {
+        return this;
+    }
+
 }
