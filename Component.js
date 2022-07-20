@@ -162,4 +162,62 @@ class Component {
         return this;
     }
 
+
+    #events = {}
+
+    /**
+     * Установка события
+     * @param {String} name 
+     * @param {CallableFunction} callback 
+     * @returns 
+     */
+    addEvent(name, callback) {
+        //this.element.addEventListener(name, callback);
+        if (!Array.isArray(this.#events[name])) {
+            this.#events[name] = [];
+            this.element.addEventListener(name, (e) => {
+                this.emitEvent(name, e);
+            });
+        }
+        this.#events[name].push(callback);
+        return this;
+    }
+
+    /**
+     * Эмит события
+     * @param {String} name 
+     * @returns 
+     */
+    emitEvent(name) {
+        if (!Array.isArray(this.#events[name])) return this;
+        this.#events[name].forEach(callback => {
+            callback();
+        })
+        return this;
+    }
+
+    /**
+     * Удаление события
+     * @param {String} name 
+     * @param {CallableFunction} callback 
+     * @returns 
+     */
+    removeEvent(name, callback) {
+        //this.element.removeEventListener(name, callback);
+        if (!Array.isArray(this.#events[name])) return this;
+        this.#events[name] = this.#events[name].filter(_callback => _callback !== callback);
+        return this;
+    }
+
+    /**
+     * Удаление всех событий
+     * @param {String} name 
+     * @returns 
+     */
+    removeEventAll(name) {
+        if (!Array.isArray(this.#events[name])) return this;
+        this.#events[name] = [];
+        return this;
+    }
+
 }
