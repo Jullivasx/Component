@@ -11,15 +11,15 @@ class Component {
     constructor({tag='div', classes=[], attrs={}} = {}) {
         this.element = document.createElement(tag);
         this.addClass(classes);
-        this.addAttrs(attrs);
+        this.setAttrs(attrs);
     }
 
     /**
-     * Добавление атрибутов в компонент
+     * Установка атрибутов в компонент
      * @param {Object} attrs 
      * @returns 
      */
-    addAttrs(attrs) {
+    setAttrs(attrs) {
         Object.entries(attrs).forEach(([key, value]) => {
             this.element.setAttribute(key, value);
         }) 
@@ -30,7 +30,7 @@ class Component {
      * Добавляет стиль
      * @param {String | Array} nameOrNames 
      */
-     addClass(nameOrNames) {
+    addClass(nameOrNames) {
         if (typeof(nameOrNames) === 'string') {
             this.element.classList.add(nameOrNames);
         }
