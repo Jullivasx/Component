@@ -232,4 +232,22 @@ class Component {
         return this;
     }
 
+    /**
+     * Скрыть элемент
+     * @returns 
+     */
+     hide() {
+        this.element.hidden = true;
+        return this;
+    }
+
+    /**
+     * Показать элемент
+     * @returns
+     */
+    show() {
+        this.element.hidden = false;
+        return this;
+    }
+
 }
