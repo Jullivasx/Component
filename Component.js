@@ -220,4 +220,16 @@ class Component {
         return this;
     }
 
+    /**
+     * Установить стили элемента
+     * @param {Object} styles 
+     * @returns 
+     */
+     setStyle(styles) {
+        Object.entries(styles).forEach(([key, value]) => {
+            this.element.style[key] = value;
+        });
+        return this;
+    }
+
 }
